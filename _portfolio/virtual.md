@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Support
+title: Virtualisation
 feature-img: "assets/img/pexels/computer.png"
-img: "assets/img/portfolio/Technical_Support.png"
+img: "assets/img/portfolio/virtual.png"
 date: 05. November 2022
 ---
 
@@ -18,4 +18,4 @@ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit la
 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
 vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 
-Icon made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+<a href="https://www.flaticon.com/free-icons/sub" title="sub icons">Icon created by Iconjam - Flaticon</a>

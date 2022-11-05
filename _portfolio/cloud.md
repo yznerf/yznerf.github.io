@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cloud
-feature-img: "assets/img/pexels/Computer.png"
+feature-img: "assets/img/pexels/computer.png"
 img: "assets/img/portfolio/Cloud_data.png"
 date: 05. November 2022
 tags: [Ipsum]
