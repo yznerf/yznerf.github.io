@@ -2,7 +2,7 @@
 layout: post
 title: Cloud
 feature-img: "assets/img/feature-img/computer.png"
-img: "assets/img/portfolio/cloud_data.png"
+img: "assets/img/portfolio/cloud.png"
 date: 05. November 2022
 tags: [cloud]
 ---
