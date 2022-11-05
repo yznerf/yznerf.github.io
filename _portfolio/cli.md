@@ -2,9 +2,9 @@
 layout: post
 title: Command Line
 feature-img: "assets/img/feature-img/computer.png"
-img: "assets/img/portfolio/command_line.png"
+img: "assets/img/portfolio/cli.png"
 date: 05. November 2022
-tags: [command_line]
+tags: [cli]
 ---
 
 ![image]({{ page.img | relative_url }})
