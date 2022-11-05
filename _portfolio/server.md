@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Server
-feature-img: "assets/img/portfolio/Server.png"
-img: "assets/img/portfolio/Server.png"
+feature-img: "assets/img/portfolio/server.png"
+img: "assets/img/portfolio/server.png"
 date: 05. November 2022
 tags: [Lorem]
 ---
