@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Support
-feature-img: "assets/img/portfolio/Technical_Support.png"
+feature-img: "assets/img/pexels/Computer.png"
 img: "assets/img/portfolio/Technical_Support.png"
 date: 05. November 2022
 ---

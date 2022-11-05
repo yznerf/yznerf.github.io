@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Command Line
-feature-img: "assets/img/portfolio/Command_line.png"
+feature-img: "assets/img/pexels/Computer.png"
 img: "assets/img/portfolio/Command_line.png"
 date: 05 November 2022
 tags: [Lorem, Ipsum]
