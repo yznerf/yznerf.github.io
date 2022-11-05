@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Command Line
-feature-img: "assets/img/pexels/computer.png"
-img: "assets/img/portfolio/Command_line.png"
-date: 05 November 2022
-tags: [Lorem, Ipsum]
+feature-img: "assets/img/feature-img/computer.png"
+img: "assets/img/portfolio/command_line.png"
+date: 05. November 2022
+tags: [command_line]
 ---
 
 ![image]({{ page.img | relative_url }})

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Cloud
-feature-img: "assets/img/pexels/computer.png"
-img: "assets/img/portfolio/Cloud_data.png"
+feature-img: "assets/img/feature-img/computer.png"
+img: "assets/img/portfolio/cloud_data.png"
 date: 05. November 2022
-tags: [Ipsum]
+tags: [cloud]
 ---
 
 ![image]({{ page.img | relative_url }})

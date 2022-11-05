@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Support
-feature-img: "assets/img/pexels/computer.png"
-img: "assets/img/portfolio/Technical_Support.png"
+feature-img: "assets/img/feature-img/computer.png"
+img: "assets/img/portfolio/technical_support.png"
 date: 05. November 2022
+tags: [support]
 ---
 
 ![image]({{ page.img | relative_url }})

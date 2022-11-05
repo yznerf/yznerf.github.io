@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Server
-feature-img: "assets/img/pexels/computer.png"
+feature-img: "assets/img/feature-img/computer.png"
 img: "assets/img/portfolio/server.png"
 date: 05. November 2022
-tags: [Lorem]
+tags: [server]
 ---
 
 ![image]({{ page.img | relative_url }})
