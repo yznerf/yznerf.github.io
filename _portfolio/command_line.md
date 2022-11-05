@@ -1,10 +1,14 @@
 ---
 layout: post
-title: Lorem Ipsum
-feature-img: "assets/img/portfolio/submarine.png"
-img: "assets/img/portfolio/submarine.png"
-date: 2017-09-03
+title: Command Line
+feature-img: "assets/img/portfolio/Command_line.png"
+img: "assets/img/portfolio/Command_line.png"
+date: 05 November 2022
+tags: [Lorem, Ipsum]
 ---
+
+![image]({{ page.img | relative_url }})
+
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
 totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
@@ -18,3 +22,5 @@ vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 
 Use this area of the page to describe your project. 
 The icon above is part of a free icon set by Flat Icons. 
+
+Icon made by <a href="https://www.flaticon.com/authors/muhammad-ali" title="Muhammad Ali">Muhammad Ali</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>

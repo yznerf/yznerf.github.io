@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Tower of Hanoi
-img: "assets/img/portfolio/toh.png"
-date: September 2014
+title: Cloud
+feature-img: "assets/img/portfolio/Cloud_data.png"
+img: "assets/img/portfolio/Cloud_data.png"
+date: 05. November 2022
+tags: [Ipsum]
 ---
 
 ![image]({{ page.img | relative_url }})
@@ -17,3 +19,4 @@ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit la
 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
 vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 
+Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>

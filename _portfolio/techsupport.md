@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Circus
-img: "assets/img/portfolio/circus.png"
-date: September 2014
-tags: [Ipsum]
+title: Support
+feature-img: "assets/img/portfolio/Technical_Support.png"
+img: "assets/img/portfolio/Technical_Support.png"
+date: 05. November 2022
 ---
 
 ![image]({{ page.img | relative_url }})
@@ -18,3 +18,4 @@ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit la
 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
 vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 
+Icon made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>

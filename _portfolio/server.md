@@ -1,8 +1,9 @@
 ---
 layout: post
-title: Github
-img: "assets/img/portfolio/github.png"
-date: 20-10-2017
+title: Server
+feature-img: "assets/img/portfolio/Server.png"
+img: "assets/img/portfolio/Server.png"
+date: 05. November 2022
 tags: [Lorem]
 ---
 
@@ -18,3 +19,4 @@ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit la
 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
 vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 
+Icon made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
