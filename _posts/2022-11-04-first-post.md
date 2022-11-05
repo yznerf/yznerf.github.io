@@ -2,6 +2,7 @@
 layout: post
 title: >
     New to this 
+author: yznerf
 tags: [Test]
 ---
 
