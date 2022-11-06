@@ -8,27 +8,38 @@ tags: [cli, powershell, support]
 
 ## A robots job
 
-Our customer migrated this year from IBM Notes/Domino to Outlook/Exchange, which - of course - didn't go over without any hickups. 🙄 It ended up to be a very lenthy process, with quite a bit of burocracy, since we had to (and kinda still have to) work with two email-systems on the server and client side.<br>
+Our customer migrated this year from IBM Notes/Domino to Outlook/Exchange, which - of course - didn't go over without any hickups. 🙄 
+It ended up to be a very lengthy process, with quite a bit of burocracy, since we had to (and kinda still have to) work with two email-systems on the server and client side.<br>
 <br>
-While the consultants, who planned the migration, where working on an automated accounting system, leveraging MS Teams and PowerAutomate, we had to be the middle-man in the accounting process, for the time being. A users wish to access a certain mailbox landed in our inbox. To secure that the mail accounting for shared mailboxes was done within the standards of german privacy and data security guidelines, we had to get permission from designated owners of the shared mailbox in question and document it, before we could ask the mail-admins to add the user to the active directory security group, which granted access to the mailbox. <br>
+While the consultants, who planned the migration, where working on an automated accounting system, leveraging MS Teams and PowerAutomate, we had to be the middle-man in the accounting process, for the time being. <br> 
+A users wish to access a certain mailbox landed in our inbox.
+ To secure that the mail accounting for shared mailboxes was done within the standards of german privacy and data security guidelines, we had to get permission from designated owners of the shared mailbox in question and document it, before we could ask the mail-admins to add the user to the active directory security group, which granted access to the mailbox. <br>
 <br>
 This involved quite a lot of writing and research on our side, because we had to document, which AD security group gave access to the shared mailboxes and also the security group that contained the "owners", who could grant permission. <br>
-If a user asked for access, we had to open a ticket, determine the owner of the mailbox in question, write a mail, askin for permission and if it was granted, route the ticket to mail-administration to add the user to the security group. Finally we could inform the user that the access was granted and how to map the mailbox (auto-mapping for outlook is deactivated for various reasons). <br> 
+If a user asked for access, we had to open a ticket, determine the owner of the mailbox in question, write a mail, asking for permission and if it was granted, route the ticket to mail-administration, to add the user to the security group.
+ Finally we could inform the user that the access was granted and how to map the mailbox (auto-mapping for outlook is deactivated for various reasons). <br> 
 The administration dumped this repettive, workintensive task on us with no perspective on how long we were supposed to do it this way.
 <br>
 __This was pain!__ 😠 <br>
 <br>
-So I decided to outsource some of the process to an interactive script, which I wrote in my little downtime on weekend shifts. It only needs the username and the smtp-adress of the mailbox to which the user wants access to. It checks, if the user already has access and if not sends an email asking for permission to the (selected) owner(s) (I designed an html template with variables) and copies a template, for the text to put into the ticket, to the clipboard. It even saves the query for processing the answer by the owner under the ticket-id and informs the user via mail, after the access is granted by the mail-administration. <br>
+So I decided to outsource some of the process to an interactive script, which I wrote in my little downtime on weekend shifts. 
+It only needs the username and the SMTP-adress of the mailbox to which the user wants access to.
+ It checks, if the user already has access and if not sends an email asking for permission to the (selected) owner(s) (I designed an html template with variables) and copies a template, for the text to put into the ticket, to the clipboard. 
+ It even saves the query for processing the answer by the owner under the ticket-id and informs the user via mail, after the access is granted by the mail-administration. <br>
 <br>
-While you save yourself much of the writing with creating mail- and ticket-templates, that doesn't save you the work of manual research - and so many mouseclicks. Writing this script took a little bit more time and effort on my side, but my colleagues (and my superiors) are loving it, and the the introduction of the new accounting system is still only an annoucement, without a hard deadline...
+While you save yourself much of the writing by creating mail- and ticket-templates, that doesn't save you the work of manual research - and so many mouseclicks. 
+Writing this script took a little bit more time and effort on my side, but my colleagues (and my superiors) are loving it, and the the introduction of the new accounting system is still only an annoucement, without any hard deadline...
 <br>
-Meanwhile I wrote some useful functions, that I can use in later scripts and - as always when I'm scripting for a practical application - I've learned a ton.
+Meanwhile I wrote some useful functions for this script, which I can use in later scripts and - as always when I'm scripting for a practical application - I've learned a ton.
 <br><br>
 Moral of the story: If it's a robots job, let the robot do it. 🤖 Even if you have to build the robot yourself.
 <br>
-Here is a redacted version (for privacy and security reasons) of the script. There are some german bits and variables, because I wrote it in german for my collegues. I've translated as much as reasonably possible, to make it easier for international readers. Some things may be redundant and overall this is not very clean, but it does the job and maybe there are some interesting, useful bits to recycle.
+Here is a redacted version (for privacy and security reasons) of the script. 
+There are some german bits and variables, because I wrote it in german for my collegues. 
+I've translated as much as reasonably possible, to make it easier for international readers. 
+Some things may be redundant and overall this is not very clean, but it does the job and maybe there are some interesting, useful bits to recycle.
 
-``` Powershell
+```powershell
 
 # Declare global variables
 #################################################
@@ -623,4 +634,5 @@ while ( $true ) {
  $choice4 = $Host.UI.PromptForChoice("Done! Again?","",$Repeat,0)
   if ( $choice4 -ne 0 ) {break}
   }
-````
+
+```
