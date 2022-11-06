@@ -17,18 +17,19 @@ There are things you can't do in GUI! - And if so, it usually takes much more ti
 <br><br>
 I've always admired admins who really live in the command line and I'm trying to be one of them. 
 Windows/Microsoft administration involves the GUI heavily and maybe that's good for newcomers and delegating tasks to users and less experienced sub-admins, but it quickly becomes tedious, once you learn what you can do with a few strokes on the keyboard. 
-And don't let me start on scripting and automating workflows...
+And don't let me start on scripting and automating workflows... 😍
 <br>
-I've made it my mission to teach some of the most useful commands I've learned over the years to the newbies (many of them are formally trained), when I'm doing onboarding. 
-Much to the dismay of some: <br>
+I've made it my mission to teach some of the most useful commands I've learned over the years to the newbies (many of them are formally trained), when I'm doing onboarding. <br>
+Much to the dismay of some:
+
  > _"Why do I need to learn this? I can do it in this-and-that menu. 
  I can't remember all this command stuff!_  
  
 I guess it's understandable. 
 Many people think much more visual and they like their menus, buttons and ticking boxes. And the learning curve is a bit steep, when you're used to doing things in a GUI.
 <br><br>
-I started using Linux in my twenties, when we learned a bit of syntax at uni. 
-And at first I thought: <br> 
+I started using Linux in my twenties, when we learned a bit of syntax at uni. <br>
+And at first I thought:  
 >_"What an antiquated, complicated way to use a computer. Where the hell is my mouse cursor?"_ 
 
 But I already felt, that you get a better understanding on how a computer processes user input. 
@@ -53,7 +54,7 @@ I was smug about my very own personal cloud and my roomies and I shared files (t
 When I started learning Powershell, it was in an MS/Windows enterprise environment (actually an university, my first IT job in 1st level support...), and I was a little disappointed, that it wasn't widely used by the admins. 
 MS brings so many GUI tools to admintrate their products. 
 I guess that is why the Windows ecosystem became so successful in the enterprise world: Everyone can learn to click some buttons. <br>
-The interessting stuff was going on in the background. User generation, login scripts, backup jobs, system hardening, group policy design... 
+The interesting stuff was going on in the background. User generation, login scripts, backup jobs, system hardening, group policy design... 
 Carfully crafted by 3rd level admins with heaps of knowledge and experience. <br>
 I wanted to do that! But you can't start at the finish line and I had very much going on in my private life. 
 So it wasn't until I got a job placing me in 1st and 2nd level support at a big german public news outlet, that I got the time and opportunity to develop and hone my scripting skills.

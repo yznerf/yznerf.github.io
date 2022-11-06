@@ -12,7 +12,7 @@ Our customer migrated this year from IBM Notes/Domino to Outlook/Exchange, which
 It ended up to be a very lengthy process, with quite a bit of burocracy, since we had to (and kinda still have to) work with two email-systems on the server and client side.<br>
 <br>
 While the consultants, who planned the migration, where working on an automated accounting system, leveraging MS Teams and PowerAutomate, we had to be the middle-man in the accounting process, for the time being. <br> 
-A users wish to access a certain mailbox landed in our inbox.
+A user's wish to access a certain mailbox landed in our inbox.
  To secure that the mail accounting for shared mailboxes was done within the standards of german privacy and data security guidelines, we had to get permission from designated owners of the shared mailbox in question and document it, before we could ask the mail-admins to add the user to the active directory security group, which granted access to the mailbox. <br>
 <br>
 This involved quite a lot of writing and research on our side, because we had to document, which AD security group gave access to the shared mailboxes and also the security group that contained the "owners", who could grant permission. <br>
@@ -30,10 +30,15 @@ It only needs the username and the SMTP-adress of the mailbox to which the user 
 While you save yourself much of the writing by creating mail- and ticket-templates, that doesn't save you the work of manual research - and so many mouseclicks. 
 Writing this script took a little bit more time and effort on my side, but my colleagues (and my superiors) are loving it, and the the introduction of the new accounting system is still only an annoucement, without any hard deadline...
 <br>
-Meanwhile I wrote some useful functions for this script, which I can use in later scripts and - as always when I'm scripting for a practical application - I've learned a ton.
-<br><br>
-Moral of the story: If it's a robots job, let the robot do it. 🤖 Even if you have to build the robot yourself.
+Meanwhile I wrote some useful functions for this script, which I can use in later scripts and - as always when I'm scripting for a practical application - I've learned a ton. <br><br>
+That being said: For what it is supposed to do, it is an abomination of a script. 
+I certainly wouldn't take it as an example for clean scripting. 
+It is more like: <br>
+`See, what you made me do!` 💢
 <br>
+<br>
+Moral of the story: If it's a robots job, let the robot do it. 🤖 Even if you have to build the robot yourself.
+<br><br>
 Here is a redacted version (for privacy and security reasons) of the script. 
 There are some german bits and variables, because I wrote it in german for my collegues. 
 I've translated as much as reasonably possible, to make it easier for international readers. 
@@ -117,7 +122,7 @@ function Make-Case ($TicketNr, $User, $SMTP, $Editor, $Owner )
         Write-Host -BackgroundColor Green "The process was saved for later."
     }
     Else{
-        Write-Host -BackgroundColor Red "Error: There is already a folder for this Ticket: $TicketNr"
+        Write-Host -BackgroundColor Red "Error: There is already a folder for this ticket: $TicketNr"
         Write-Host -BackgroundColor Red "If this is an error, please delete it."
         Write-Host ""
         Read-Host "Press ENTER to quit"
@@ -130,7 +135,7 @@ function Make-Case ($TicketNr, $User, $SMTP, $Editor, $Owner )
 function Get-Case ($TicketNr)
 {
     If (-not(Test-Path -Path "$PSScriptRoot\$TicketNr\process.csv" -PathType Leaf)) {
-        Write-Host -BackgroundColor Red "Error: There is no process for this Ticket: $TicketNr"
+        Write-Host -BackgroundColor Red "Error: There is no process for this ticket: $TicketNr"
         Write-Host -BackgroundColor Red "Please check manually or start again"
         Write-Host ""
         Read-Host "Press ENTER to quit"
@@ -384,7 +389,7 @@ while ( $true ) {
 
             # Mailbox Info
             #####################################         
-         '1' {
+        '1' {
             Write-Host ""
             Write-Host "============= Mailbox-Info ============="
             
@@ -405,7 +410,7 @@ while ( $true ) {
          
          # Request permission from owner
          ########################################
-         '2' {
+        '2' {
 
             $Data = Import-Csv $CsvPath -Delimiter ";" 
             Read-Host "Please press ENTER to select the mailbox"
@@ -460,28 +465,26 @@ while ( $true ) {
                 $no = New-Object System.Management.Automation.Host.ChoiceDescription "&no", "no"
                 $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
                 $choice=$host.ui.PromptForChoice($Titel, $message, $options, 0)
-                If ($choice -eq 0){
-                    SendIt -Email $OWAnfrage -To $Mailto -Ticket $Ticket -SMTP $SMTP -SMPTMail $SMTPMail
-                    Write-Host ""
-                    Write-Host "Email sent. Please check our inbox for copy!"
-                    Write-Host ""
-                    WaGen-SU -TicketNr $Ticket -AW $AW -SMTP $SMTP -Editor $Editor -Owner $Owner -Owners $Owners
-                }
-                Else{
-                    Write-Host ""
-                    Write-Host "The process will be aborted. processfolder will be deleted."
-                    Write-Host ""
-                    Remove-Item -Path "$PSScriptRoot\$Ticket" -Recurse
-                    
-                    
-                }
+                    If ($choice -eq 0){
+                        SendIt -Email $OWAnfrage -To $Mailto -Ticket $Ticket -SMTP $SMTP -SMPTMail $SMTPMail
+                        Write-Host ""
+                        Write-Host "Email sent. Please check our inbox for copy!"
+                        Write-Host ""
+                        WaGen-SU -TicketNr $Ticket -AW $AW -SMTP $SMTP -Editor $Editor -Owner $Owner -Owners $Owners
+                    }
+                    Else{
+                        Write-Host ""
+                        Write-Host "The process will be aborted. Processfolder will be deleted."
+                        Write-Host ""
+                        Remove-Item -Path "$PSScriptRoot\$Ticket" -Recurse
+                    }
             }
          
          
          }
           # Permission granted or Owner asked for Editor
           ########################################
-         '3' {
+        '3' {
             $Titel = "What is the case?"
             $message = "Inquiry by owner (I) or permission for open process (P)?"
             $I = New-Object System.Management.Automation.Host.ChoiceDescription "&Inquiry", "I"
@@ -527,7 +530,7 @@ while ( $true ) {
          # Check group-membership after mail-admins processing
          # optional mail to user
          ########################################
-         '4' {
+        '4' {
             $Titel = "Check membership"
             $message = "Permission from Mail-Aministration (A) or check membership (M)?"
             $B = New-Object System.Management.Automation.Host.ChoiceDescription "&APermission", "A"
@@ -544,37 +547,37 @@ while ( $true ) {
                     $AW = Get-Fullname $User
                     If (IsMember -Group $Editor -User $User){$Member = 5} 
                     Else {$Member = 6}
-                        Switch ($Member) {
-                            "5" {
-                                    Write-Host ""
-                                    Write-Host "$AW is member of group $Editor"
-                                    Write-Host ""
-                                    $Titel = "Inform User?"
-                                    $message = "Send info-mail to user?"
-                                    $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&yes", "yes"
-                                    $no = New-Object System.Management.Automation.Host.ChoiceDescription "&no", "no"
-                                    $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
-                                    $choice2=$host.ui.PromptForChoice($Titel, $message, $options, 0)
-                                        if ($choice2= $yes){
-                                                $AW = Get-Fullname -SamAcc $User
-                                                $AWInfo = "$PSScriptRoot\$Ticket\AWInfo.html"
-                                                $AWMail = (Get-ADUser -Filter 'SamAccountName -eq $User' -Properties * | Select-Object -ExpandProperty EmailAddress)
-                                                Email-Head -Email $AWInfo
-                                                Email-UserInfo -Email $AWInfo -AW $AW -PF $SMTP
-                                                Email-Sig -Email $AWInfo -ich $me
-                                                SendIt -Email $AWInfo -To $AWMail -Ticket $Ticket -SMTP $SMTP -SMPTMail $SMTPMail
-                                                Kontrolle-SU -Editor $Editor -AW $AW -TicketNr $Ticket
-                                                Write-Host -BackgroundColor Green "Mail sent."
-                                                Write-Host -BackgroundColor Green "Process completed."
-                                                Write-Host -BackgroundColor Green "Deleting process-folder."
-                                                Remove-Item "$PSScriptRoot\$Ticket" -Recurse
-                                                }
-                                        else {Write-Host "See you later!"}
-                             }
-                            "6" {
-                               Write-Host -BackgroundColor Red "Something went wrong. User is not a member. Please check again manually!"
+                    Switch ($Member) {
+                        "5" {
+                            Write-Host ""
+                            Write-Host "$AW is member of group $Editor"
+                            Write-Host ""
+                            $Titel = "Inform User?"
+                            $message = "Send info-mail to user?"
+                            $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&yes", "yes"
+                            $no = New-Object System.Management.Automation.Host.ChoiceDescription "&no", "no"
+                            $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+                            $choice2=$host.ui.PromptForChoice($Titel, $message, $options, 0)
+                                if ($choice2= $yes){
+                                    $AW = Get-Fullname -SamAcc $User
+                                    $AWInfo = "$PSScriptRoot\$Ticket\AWInfo.html"
+                                    $AWMail = (Get-ADUser -Filter 'SamAccountName -eq $User' -Properties * | Select-Object  -ExpandProperty      EmailAddress)
+                                    Email-Head -Email $AWInfo
+                                    Email-UserInfo -Email $AWInfo -AW $AW -PF $SMTP
+                                    Email-Sig -Email $AWInfo -ich $me
+                                    SendIt -Email $AWInfo -To $AWMail -Ticket $Ticket -SMTP $SMTP -SMPTMail $SMTPMail
+                                    Kontrolle-SU -Editor $Editor -AW $AW -TicketNr $Ticket
+                                    Write-Host -BackgroundColor Green "Mail sent."
+                                    Write-Host -BackgroundColor Green "Process completed."
+                                    Write-Host -BackgroundColor Green "Deleting process-folder."
+                                    Remove-Item "$PSScriptRoot\$Ticket" -Recurse
+                                    }
+                                else {Write-Host "See you later!"}
                             }
-                        }
+                        "6" {
+                            Write-Host -BackgroundColor Red "Something went wrong. User is not a member. Please check again manually!"
+                            }
+                    }
                 }
                 Else {
                     $Data = Import-Csv $CsvPath -Delimiter ";" 
@@ -587,43 +590,42 @@ while ( $true ) {
                     Write-Host ""
                     $User = Get-User (Read-Host "Please enter SamAccountName of user")
                     $AW = Get-Fullname -SamAcc $User
-                     If (IsMember -Group $Editor -User $User){
-                         Write-Host ""
-                         Write-Host "$AW is already member of $Editor"
-                         Write-Host ""
-                         $Titel = "Inform user?"
-                         $message = "Info-mail to user?"
-                         $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&yes", "yes"
-                         $no = New-Object System.Management.Automation.Host.ChoiceDescription "&no", "no"
-                         $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
-                         $choice=$host.ui.PromptForChoice($Titel, $message, $options, 0)
-                             switch($choice){
-                                 '0'{
-                                 $Ticket = Read-Host "Please enter Ticketnr."
-                                 New-Item -Path "$PSScriptRoot\$Ticket" -ItemType Directory
-                                 Start-Sleep 2
-                                 $AWMail = (Get-ADUser -Filter 'SamAccountName -eq $User' -Properties * | Select-Object -ExpandProperty EmailAddress)
-                                 $AW = Get-Fullname -SamAcc $User
-                                 $AWInfo = "$PSScriptRoot\$Ticket\temp.html"
-                                 Email-Head -Email $AWInfo
-                                 Email-UserInfo -Email $AWInfo -AW $AW -PF $SMTP
-                                 Email-Sig -Email $AWInfo -ich $me
-                                 SendIt -Email $AWInfo -To $AWMail -Ticket $Ticket -SMTP $SMTP -SMPTMail $SMTPMail
-                                 Kontrolle-SU -Editor $Editor -AW $AW -TicketNr $Ticket
-                                 Remove-Item "$PSScriptRoot\$Ticket" -Recurse                                 
-                                 }
-                                 '1'{Write-Host "Okay. No infomail"}
-                             }
-                     }
-                     ElseIf (IsMember -Group $Owner -User $User){
-                         Write-Host ""
-                         Write-Host "$AW is member of the $Owner group"
-                         Write-Host ""
-            
-                     }
-                     Else{
-                         Write-Host "$AW has not access to $SMTP yet!"
-                     }
+                        If (IsMember -Group $Editor -User $User){
+                            Write-Host ""
+                            Write-Host "$AW is already member of $Editor"
+                            Write-Host ""
+                            $Titel = "Inform user?"
+                            $message = "Info-mail to user?"
+                            $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&yes", "yes"
+                            $no = New-Object System.Management.Automation.Host.ChoiceDescription "&no", "no"
+                            $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+                            $choice=$host.ui.PromptForChoice($Titel, $message, $options, 0)
+                            switch($choice){
+                                '0'{
+                                    $Ticket = Read-Host "Please enter Ticketnr."
+                                    New-Item -Path "$PSScriptRoot\$Ticket" -ItemType Directory
+                                    Start-Sleep 2
+                                    $AWMail = (Get-ADUser -Filter 'SamAccountName -eq $User' -Properties * | Select-Object    -ExpandProperty EmailAddress)
+                                    $AW = Get-Fullname -SamAcc $User
+                                    $AWInfo = "$PSScriptRoot\$Ticket\temp.html"
+                                    Email-Head -Email $AWInfo
+                                    Email-UserInfo -Email $AWInfo -AW $AW -PF $SMTP
+                                    Email-Sig -Email $AWInfo -ich $me
+                                    SendIt -Email $AWInfo -To $AWMail -Ticket $Ticket -SMTP $SMTP -SMPTMail $SMTPMail
+                                    Kontrolle-SU -Editor $Editor -AW $AW -TicketNr $Ticket
+                                    Remove-Item "$PSScriptRoot\$Ticket" -Recurse                                 
+                                    }
+                                '1'{Write-Host "Okay. No infomail"}
+                            }
+                        }
+                        ElseIf (IsMember -Group $Owner -User $User){
+                            Write-Host ""
+                            Write-Host "$AW is member of the $Owner group"
+                            Write-Host ""
+                        }
+                        Else{
+                            Write-Host "$AW has not access to $SMTP yet!"
+                        }
                 }
             }
             
