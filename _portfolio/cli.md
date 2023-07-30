@@ -34,10 +34,9 @@ And at first I thought:
 
 But I already felt, that you get a better understanding on how a computer processes user input. 
 In a way, you learn how the computer thinks. 
-It is much more abstract, than waving your mouse cursor arround, because you need to know what exists and what is allowed. 
+It is much more abstract, than waving your mouse cursor arround, because you need to know what exists and what is possible/allowed. 
 Your wishes need to be translated, much like learning a new language. 
-While using a GUI has much more in common with pointing to pictures, when you order in a foreign restaurant (Which is fine. 
-You'll get your food.).<br>
+While using a GUI has much more in common with pointing to pictures, when you order in a foreign restaurant (Which is fine. You'll get your food.).<br>
 And at first I was a bit afraid, that I could break things. But then I quickly learned what I could gain by learning this mystical, sometimes cryptic language. 
 <br><br>
 So I learned to use Linux through the shell. 
@@ -53,10 +52,10 @@ I was smug about my very own personal cloud and my roomies and I shared files (t
 <br><br>
 When I started learning Powershell, it was in an MS/Windows enterprise environment (actually an university, my first IT job in 1st level support...), and I was a little disappointed, that it wasn't widely used by the admins. 
 MS brings so many GUI tools to admintrate their products. 
-I guess that is why the Windows ecosystem became so successful in the enterprise world: Everyone can learn to click some buttons. <br>
+I guess that is why the Windows ecosystem became so successful in the enterprise world: Everyone can learn to click some buttons. 🐵 <br>
 The interesting stuff was going on in the background. User generation, login scripts, backup jobs, system hardening, group policy design... 
-Carfully crafted by 3rd level admins with heaps of knowledge and experience. <br>
-I wanted to do that! But you can't start at the finish line and I had very much going on in my private life. 
+Carefully crafted by 3rd level admins with heaps of knowledge and experience. <br>
+I wanted to do that! But you can't start at the finish line and, at that time, I had very much going on in my private life. 
 So it wasn't until I got a job placing me in 1st and 2nd level support at a big german public news outlet, that I got the time and opportunity to develop and hone my scripting skills.
 <br><br>
 For me it is the task at hand, that demands developement. 
@@ -70,9 +69,11 @@ And this is how I largly gained my scripting skills: <br>
 * Time consuming work => Script it!
 * A boring task? => Script it!
 * Strange errors => Find more of them (via script) until you find the cause
-* Reoccuring problem with known condition => Prevention by monitoring the condition (via script)
+* Reoccuring problems with a known condition => Prevention by monitoring the condition (via script)
 
+I should not forget: The Open Source Community operates, to a large extend on the command line. There is loads of software, that you can get for free (but don't forget to pay it forward or back by supporting projects every once in a while) if you can operate the command line.
+<br><br>
 So, if you are starting out in IT: Get to know your command line and therefore your systems. 
 Dive in and find out! 
-Otherwise you'll only scratch the surface of what is possible and you will have to pay for software and features, which you could render needless, if you develop the solution yourself. <br> <br> 
+Otherwise you'll only scratch the surface of what is possible and you will have to pay for software and features, which you could render useless, if you develop the solution yourself. <br><br> 
 You'll get faster, smarter and - in the long run - wiser.
