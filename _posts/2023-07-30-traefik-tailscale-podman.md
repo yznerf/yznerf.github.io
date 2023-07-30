@@ -99,7 +99,7 @@ mkdir -p $PODMAN_DIR/logs/traefik
 
 ### Compose File
 
-Please read the contents of the compose file carefully, to check if you need any adjustments. I created the compose and the .env file in the folder $PODMAN_DIR/traefik. I do the static configuration for traefik via command line arguments in the compose file and the dynamic configuration via file provider. You may want to customize the compose file to your needs. This configuration works without any adjustments for me, but you may want to add middlewares, etc.
+Please read the contents of the compose file carefully, to check if you need any adjustments. <br> I've created the compose and the .env file in the folder $PODMAN_DIR/traefik. I do the static configuration for traefik via command line arguments in the compose file and the dynamic configuration via file provider. You may want to customize the compose file to your needs. This configuration works without any adjustments for me, but you may want to add middlewares, etc.
 
 
 ``` yaml
@@ -253,13 +253,14 @@ systemctl --user start container-traefik.service
 systemctl --user status container-traefik.service
 ```
 
-### Stop the container and start the systemd unit
+Now the container should be running as a systemd unit. You can check the logs via journalctl or with:
+  
+  ``` bash
+  tail -f $PODMAN_DIR/logs/traefik/traefik.log
+  ```
 
-``` bash
-podman stop traefik
-systemctl --user start container-traefik.service
-```
 ### Check if the container is running
+You can still use the podman cli to check if the container is running:
 
 ``` bash
 podman ps
