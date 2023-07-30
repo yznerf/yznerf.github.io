@@ -2,8 +2,8 @@
 layout: post
 title: > 
     Traefik Tailscale integration with Podman
-date: 06. November 2022
-tags: [cli, powershell, support]
+date: 30. July 2023
+tags: [cli, tailscale, traefik, podman, container, rootless, linux]
 ---
 
 # Testing the tailscale integration of traefik proxy
